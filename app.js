@@ -1,9 +1,11 @@
 const blocks = document.querySelectorAll(".block"); /*block olanların hepsini seç*/
 const playerText = document.getElementById("player");/*ıd'leri al*/ 
 const errorText = document.getElementById("error");
-let player = "S"; /*değişken oluştur*/
+const Game = {};
+let player = "X"; /*değişken oluştur*/
 let gameOver = false;
 let winner;
+
 
 function startGame(){
     playerText.textContent =`${player}'s Turn !`;
@@ -13,9 +15,10 @@ function startGame(){
 
 function chooseArea(block) { /*her bir bloğu çek*/
     if(block.textContent === ""){
-        block.textContent = player;
+        block.textContent = Game['item_type'];
         turnPlayer();
-        if(player === "S"){
+
+        if(Game['item_type'] === "O"){
             block.style.color = "red"
         }
     }else{
@@ -37,21 +40,20 @@ function chooseArea(block) { /*her bir bloğu çek*/
 }
 
 function turnPlayer(){
-    if(player === "S"){
-        player = "O";
+    if(player === "X"){
+        player = "Y";
         playerText.textContent = `${player}'s Turn !`
         return;
-    }else if (player === "O"){
-        player = "S";
+    }else if (player === "Y"){
+        player = "X";
         playerText.textContent = `${player}'s Turn !`
-        
     }
 }
 
 function checkWin(){
-    checkRows()/*satır kontrolü*/ 
-    checkColums()/*kolon kontrolü*/ 
-    checkDiagonals()/*çapraz*/ 
+    checkRows() /*satır kontrolü*/ 
+    checkColums() /*kolon kontrolü*/ 
+    checkDiagonals() /*çapraz*/ 
 
 }
 
@@ -61,10 +63,7 @@ function checkTie(){
     if (!values.includes("")){
         playerText.textContent = "Tie !";
         blocks.forEach(block.style.pointerEvents = 'none');
-
     }
-
-
 }
 
 function checkRows(){ /*indexler üzerinden oyun şekillendirme, örnegin ilk satır için 0.indeks 1.indekse, ve 0.indeks 2.indexse eşitse oyun biter*/
@@ -105,8 +104,20 @@ function checkDiagonals(){
     }
     if(dia1) return winner = blocks[0].textContent
     if(dia2) return winner = blocks[2].textContent
-    
-
 }
 
+function select_game_item(type=""){
+    Game['item_type'] = type
+    document.querySelectorAll(".select_soro span")[0].classList.remove('select')
+    document.querySelectorAll(".select_soro span")[1].classList.remove('select')
+    if(type=="S"){
+        document.querySelectorAll(".select_soro span")[0].classList.add('select')
+    }
+    if(type=="O"){
+        document.querySelectorAll(".select_soro span")[1].classList.add('select')
+    }
+}
+
+
 startGame(); /*oyunu çalıştır*/
+select_game_item("S")
