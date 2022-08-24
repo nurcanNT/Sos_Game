@@ -3,6 +3,7 @@
 * HTML,CSS and Javascript used. 
 * Grid created. 
 * Built using if else and Javascript methods.
+* It's like a Tic Tac Toe game. I can accept suggestion to make SOS ⁉
 ### Below are the images and video of the project:
  <br>
  
