@@ -31,8 +31,6 @@ h1,h2 {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     border:3px solid #4017f8;
-   
-    
 }
 .title {
     background: #f81739;
@@ -65,8 +63,8 @@ span {
 
 }
 .block:hover {
-    border:7px solid #05b50a;
-    background:#ffcc5c;
+    border:7px solid #05b50a !important;
+    background:#ffcc5c !important;
     cursor: pointer;
 }
 #error {
@@ -74,3 +72,24 @@ span {
     margin-top: 2rem;
     letter-spacing: 4px;
 }
+
+.select_soro{
+    display:flex;
+    justify-content: space-between;
+}
+.select_soro span{
+    padding:25px;
+    font-size:3rem;
+    cursor: pointer;
+    margin:20px;
+} 
+.select_soro span:nth-child(1){
+    color:#000;
+} 
+.select_soro span:nth-child(2){
+    color:red;
+} 
+.select_soro span:hover, .select_soro .select{
+    background:#ddd;
+    border:2px solid #000;
+} 

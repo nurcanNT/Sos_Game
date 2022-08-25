@@ -12,20 +12,24 @@
     <h1><span>SOS GAME </span></h1>
     <h2 id="player"></h2>
     <div class="game_container">
+        <div class="block" id="item1"></div>
+        <div class="block" id="item2"></div>
+        <div class="block" id="item3"></div>
 
-        <div class="block" id="item1" onclick="game(this.id)"></div>
-        <div class="block" id="item2" onclick="game(this.id)"></div>
-        <div class="block" id="item3" onclick="game(this.id)"></div>
-
-        <div class="block" id="item4" onclick="game(this.id)"></div>
-        <div class="block" id="item5" onclick="game(this.id)"></div>
-        <div class="block" id="item6" onclick="game(this.id)"></div>
+        <div class="block" id="item4"></div>
+        <div class="block" id="item5"></div>
+        <div class="block" id="item6"></div>
         
-        <div class="block" id="item7" onclick="game(this.id)"></div>
-        <div class="block" id="item8" onclick="game(this.id)"></div>
-        <div class="block" id="item9" onclick="game(this.id)"></div>
+        <div class="block" id="item7"></div>
+        <div class="block" id="item8"></div>
+        <div class="block" id="item9"></div>
     </div>
+
+    <div class="select_soro">
+        <span onclick="select_game_item('S')">S</span>
+        <span onclick="select_game_item('O')">O</span>
     </div>
+
     <p id="error"><span style="color:red;">Error!</span></p>
 
     <script src="app.js"></script>
