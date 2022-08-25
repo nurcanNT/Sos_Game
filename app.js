@@ -14,17 +14,18 @@ function startGame(){
 function chooseArea(block) { /*her bir bloğu çek*/
     if(block.textContent === ""){
         block.textContent = player;
+        console.log(player);
         turnPlayer();
         if(player === "S"){
             block.style.color = "red"
         }
-    }else{
-        errorText.textContent = "Heyy, it's empty ! "/*hata mesajı*/
-        block.style.border = "15px solid red"  /*iki defa tıklanan yerde geçici olarak kırımızı çerçeve çıkar*/
+    } else {
+        errorText.textContent = "Heyy, it's not empty ! "/*hata mesajı*/
+        block.style.border = "7px solid red"  /*iki defa tıklanan yerde geçici olarak kırımızı çerçeve çıkar*/
         setTimeout(()  => {       /*zaman oluşturma fonksiyonu-kırmızı çerçevenin ne kadar süre kalacağını belirler*/
            errorText.textContent =""
            block.style.border = "7px solid #05b50a"
-        },2500)     
+        },1500)     
     }
     
     checkWin();
@@ -33,6 +34,7 @@ function chooseArea(block) { /*her bir bloğu çek*/
     if(gameOver){
         playerText.textContent = `Game is over, ${winner} Won`;   /*Kazanınca mesaj verir.*/
         blocks.forEach(block => block.style.pointerEvents = 'none');  /*kazandıktan sonra kutucuklar dolmaz*/ 
+        restartText.textContent = `Restart Game`;
     }
 }
 
@@ -41,7 +43,7 @@ function turnPlayer(){
         player = "O";
         playerText.textContent = `${player}'s Turn !`
         return;
-    }else if (player === "O"){
+    } else if(player === "O") {
         player = "S";
         playerText.textContent = `${player}'s Turn !`
         
@@ -57,10 +59,11 @@ function checkWin(){
 
 function checkTie(){
     const values = [];
-    blocks.forEach(block => values.push(block.textContent))
+    blocks.forEach(pointer => values.push(pointer.textContent))
+    console.log(values);
     if (!values.includes("")){
         playerText.textContent = "Tie !";
-        blocks.forEach(block.style.pointerEvents = 'none');
+        blocks.forEach(pointer.style.pointerEvents = 'none');
 
     }
 
@@ -107,6 +110,23 @@ function checkDiagonals(){
     if(dia2) return winner = blocks[2].textContent
     
 
+}
+
+// RESET butonu addeventlistener ve myfunc metodu.
+but.addEventListener("click", () => myfunc())
+
+function myfunc() {
+    location.reload();
+    document.getElementById("item1").value = '';
+    document.getElementById("item2").value = '';
+    document.getElementById("item3").value = '';
+    document.getElementById("item4").value = '';
+    document.getElementById("item5").value = '';
+    document.getElementById("item6").value = '';
+    document.getElementById("item7").value = '';
+    document.getElementById("item8").value = '';
+    document.getElementById("item9").value = '';
+ 
 }
 
 startGame(); /*oyunu çalıştır*/

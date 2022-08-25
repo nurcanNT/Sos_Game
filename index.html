@@ -11,22 +11,30 @@
 <body>
     <h1><span>SOS GAME </span></h1>
     <h2 id="player"></h2>
+    <!--burada tagler arasına Error! yazılmamalı. Ekranda sürekli Error! yazısı görünüyor çünkü.
+    ve error burada daha okunaklı görünüyor aşağıda çok alt kısımda kalıyor diye bu kısma taşıdım.-->
+    <p id="error"><span style="color:red;"></span></p>
     <div class="game_container">
+        <!-- burada onclick="game(this.id)" kullanmak konsolda hata veriyordu. O yüzden kullanmadım ve 
+            hata vermeden bu haliyle çalışıyor. Kullanmama sebebim => "Never use .onclick(), or similar 
+            attributes from a userscript! (It's also poor practice in a regular web page)." bu cümledir. -->
 
-        <div class="block" id="item1" onclick="game(this.id)"></div>
-        <div class="block" id="item2" onclick="game(this.id)"></div>
-        <div class="block" id="item3" onclick="game(this.id)"></div>
+        <div class="block" id="item1"></div>
+        <div class="block" id="item2"></div>
+        <div class="block" id="item3"></div>
 
-        <div class="block" id="item4" onclick="game(this.id)"></div>
-        <div class="block" id="item5" onclick="game(this.id)"></div>
-        <div class="block" id="item6" onclick="game(this.id)"></div>
+        <div class="block" id="item4"></div>
+        <div class="block" id="item5"></div>
+        <div class="block" id="item6"></div>
         
-        <div class="block" id="item7" onclick="game(this.id)"></div>
-        <div class="block" id="item8" onclick="game(this.id)"></div>
-        <div class="block" id="item9" onclick="game(this.id)"></div>
+        <div class="block" id="item7"></div>
+        <div class="block" id="item8"></div>
+        <div class="block" id="item9"></div>
     </div>
+    <!--Buraya da bir RESET butonu iyi olur diye düşündüm, js dosyasında acemice resetledim oyunu da :) -->
+    <button class="but" id="but" style="margin-top: 10px;">RESET</button>
     </div>
-    <p id="error"><span style="color:red;">Error!</span></p>
+    
 
     <script src="app.js"></script>
 </body>
