@@ -4,6 +4,11 @@
 * Grid created. 
 * Built using if else and Javascript methods.
 * It's like a Tic Tac Toe game. I can accept suggestion to make SOS ⁉
+<br>
+#### You can play my game : https://nurcannt.github.io/Sos_Game/
+
+
+
 ### Below are the images and video of the project:
  <br>
  
